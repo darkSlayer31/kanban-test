@@ -2,6 +2,7 @@ import {FC} from 'react';
 
 import useLocalStorage from '../../hooks/useLocalStorage';
 import {ColumnType} from '../../types';
+import Column from '../Column';
 
 import style from './ColumnList.module.scss';
 
@@ -19,7 +20,11 @@ const ColumnList: FC = () => {
   return (
     <ul className={style.list}>
       {columns.map((item) => {
-        return <div className={style.item}>{item.name}</div>;
+        return (
+          <div className={style.item} key={item.id}>
+            <Column column={item} />
+          </div>
+        );
       })}
     </ul>
   );

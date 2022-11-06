@@ -1,16 +1,22 @@
-import {FC, useState} from 'react';
+import {FC} from 'react';
+
+import {CardType} from '../../types';
 
 import Card from '../Card';
+import style from './CardList.module.scss';
 
-const CardList: FC = () => {
-  const [cards, setCards] = useState([]);
+interface CardListProps {
+  cards: CardType[];
+  setCards: (value: CardType[] | ((val: CardType[]) => CardType[])) => void;
+}
 
+const CardList: FC<CardListProps> = ({cards, setCards}) => {
   return cards.length === 0 ? (
-    <div>Карточек нет</div>
+    <div className={style.item}>Карточек нет</div>
   ) : (
     <>
-      {cards.map((card, i) => (
-        <Card key={i} />
+      {cards.map((card) => (
+        <Card key={card.id} card={card} setCards={setCards} />
       ))}
     </>
   );

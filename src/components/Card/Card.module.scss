@@ -1,0 +1,16 @@
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  transition: background 0.2s;
+
+  &:hover {
+    background-color: darken(#ffffff, 10%);
+  }
+}
+
+.comments {
+  margin: 0;
+  font-size: 0.8rem;
+}

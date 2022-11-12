@@ -23,7 +23,7 @@ const Column: FC<ColumnProps> = ({column, userName}) => {
       <div className={style.header}>
         <h4 className={style.headerTitle}>{column.name}</h4>
       </div>
-      <CardList cards={filteredCards} setCards={setCards} />
+      <CardList cards={filteredCards} setCards={setCards} columnName={column.name} />
       <AddCardForm idColumn={column.id} userName={userName} setCards={setCards} />
     </div>
   );

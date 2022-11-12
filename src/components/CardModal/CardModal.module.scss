@@ -1,0 +1,37 @@
+.content {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.description {
+  flex: 2;
+}
+
+.descriptionInput {
+  padding: 5px;
+  width: 100%;
+  transition: background 0.2s;
+
+  &:hover {
+    background-color: darken(#ffffff, 10%);
+  }
+
+  &:focus {
+    background-color: darken(#ffffff, 10%);
+  }
+}
+
+.title {
+  padding: 10px;
+  font-weight: 500;
+  transition: background 0.2s;
+
+  &:hover {
+    background-color: darken(#ffffff, 10%);
+  }
+
+  &:focus {
+    background-color: darken(#ffffff, 10%);
+  }
+}

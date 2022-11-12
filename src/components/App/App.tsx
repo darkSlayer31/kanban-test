@@ -35,8 +35,6 @@ const App: FC = () => {
   if (columns.length === 0) {
     setColumns(mockColumns);
   }
-  console.log('userName', userName);
-  console.log('columnsApp', columns);
 
   return (
     <>

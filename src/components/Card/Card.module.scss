@@ -4,6 +4,7 @@
   align-items: center;
   padding: 1rem;
   transition: background 0.2s;
+  cursor: pointer;
 
   &:hover {
     background-color: darken(#ffffff, 10%);
@@ -13,4 +14,12 @@
 .comments {
   margin: 0;
   font-size: 0.8rem;
+}
+
+.button {
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.2);
+  }
 }

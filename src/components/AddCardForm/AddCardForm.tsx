@@ -35,7 +35,7 @@ const AddCardForm: FC<AddCardFormProps> = ({idColumn, userName, setCards}) => {
   return (
     <form className={style.form} onSubmit={addCard}>
       <input type="text" name="newCard" placeholder="Добавить карточку" value={cardName} onChange={onChange} />
-      <button type="submit" disabled={!cardName}>
+      <button className={style.button} type="submit" disabled={!cardName}>
         <PlusIcon title="Добавить" width={16} height={16} className={iconStyle.svgIcon} />
       </button>
     </form>

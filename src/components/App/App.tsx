@@ -41,7 +41,7 @@ const App: FC = () => {
       <UserModal username={userName} setUserName={setUserName} />
       <div className={style.container}>
         <h1 className={style.title}>Добро пожаловать {userName}</h1>
-        <ColumnList userName={userName} columns={columns} />
+        <ColumnList userName={userName} columns={columns} setColumns={setColumns} />
       </div>
     </>
   );

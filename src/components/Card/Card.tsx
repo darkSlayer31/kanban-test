@@ -54,7 +54,7 @@ const Card: FC<CardProps> = ({card, setCards, columnName, userName}) => {
           <span>{card.name}</span>
           <p className={style.comments}>Коментариев {filteredComments.length}</p>
         </div>
-        <button type="button" onClick={deleteCard}>
+        <button className={style.button} type="button" onClick={deleteCard}>
           <TrashIcon title="Удалить" width={16} height={16} className={iconStyle.svgIcon} />
         </button>
       </div>

@@ -12,9 +12,10 @@ interface CardProps {
   card: CardType;
   setCards: (value: CardType[] | ((val: CardType[]) => CardType[])) => void;
   columnName: string;
+  userName: string;
 }
 
-const Card: FC<CardProps> = ({card, setCards, columnName}) => {
+const Card: FC<CardProps> = ({card, setCards, columnName, userName}) => {
   const [comments, setComments] = useLocalStorage<CommentType[]>('comments', []);
 
   const [showModal, setShowModal] = useState(false);
@@ -38,7 +39,16 @@ const Card: FC<CardProps> = ({card, setCards, columnName}) => {
 
   return (
     <>
-      <CardModal show={showModal} closeModal={closeModal} card={card} columnName={columnName} setCards={setCards} />
+      <CardModal
+        userName={userName}
+        show={showModal}
+        closeModal={closeModal}
+        card={card}
+        columnName={columnName}
+        setCards={setCards}
+        setComments={setComments}
+        comments={filteredComments}
+      />
       <div className={style.card} onClick={openModal}>
         <div>
           <span>{card.name}</span>

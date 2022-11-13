@@ -9,15 +9,16 @@ interface CardListProps {
   cards: CardType[];
   setCards: (value: CardType[] | ((val: CardType[]) => CardType[])) => void;
   columnName: string;
+  userName: string;
 }
 
-const CardList: FC<CardListProps> = ({cards, setCards, columnName}) => {
+const CardList: FC<CardListProps> = ({cards, setCards, columnName, userName}) => {
   return cards.length === 0 ? (
     <div className={style.item}>Карточек нет</div>
   ) : (
     <>
       {cards.map((card) => (
-        <Card key={card.id} card={card} setCards={setCards} columnName={columnName} />
+        <Card key={card.id} card={card} setCards={setCards} columnName={columnName} userName={userName} />
       ))}
     </>
   );

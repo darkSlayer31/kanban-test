@@ -1,7 +1,10 @@
 import {FC, useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import {CardType} from '../../types';
+
+import {CardType, CommentType} from '../../types';
+import AddCommentForm from '../AddCommentForm';
+import CommentsList from '../CommentList';
 
 import style from './CardModal.module.scss';
 
@@ -11,9 +14,21 @@ interface CardModalProps {
   card: CardType;
   columnName: string;
   setCards: (value: CardType[] | ((val: CardType[]) => CardType[])) => void;
+  setComments: (value: CommentType[] | ((val: CommentType[]) => CommentType[])) => void;
+  comments: CommentType[];
+  userName: string;
 }
 
-const CardModal: FC<CardModalProps> = ({show, closeModal, card, columnName, setCards}) => {
+const CardModal: FC<CardModalProps> = ({
+  show,
+  closeModal,
+  card,
+  columnName,
+  setCards,
+  setComments,
+  comments,
+  userName,
+}) => {
   const [description, setDescription] = useState(card.description);
   const [name, setName] = useState(card.name);
 
@@ -89,6 +104,8 @@ const CardModal: FC<CardModalProps> = ({show, closeModal, card, columnName, setC
 
         {/* CommentsList Component */}
         <h5>Комментарии:</h5>
+        <AddCommentForm setComments={setComments} userName={userName} idCard={card.id} />
+        <CommentsList setComments={setComments} comments={comments} />
       </Modal.Body>
       <Modal.Footer>
         <Button variant="danger" onClick={deleteCard}>
